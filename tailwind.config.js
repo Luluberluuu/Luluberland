@@ -12,8 +12,15 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Work Sans', 'sans-serif'],
             },
+
+            colors: {
+                noir: '#141414',
+                noirlight: '#2A2A2A',
+                grisclair: '#F1F1F1',
+                vert: '#10B981',
+            }
         },
     },
 

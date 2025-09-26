@@ -45,4 +45,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function items()
+    {
+        return $this->belongsToMany(Item::class, 'user_items', 'user_id', 'item_id')
+                    ->withPivot('status', 'rating', 'review')
+                    ->withTimestamps();
+    }
 }
