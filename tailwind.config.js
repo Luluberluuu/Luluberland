@@ -18,8 +18,8 @@ export default {
             colors: {
                 noir: '#141414',
                 noirlight: '#2A2A2A',
-                grisclair: '#F1F1F1',
-                vert: '#10B981',
+                grisclair: '#F7F7F7',
+                jaune: '#FFCA2B',
             }
         },
     },

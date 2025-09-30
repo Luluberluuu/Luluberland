@@ -2,3 +2,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-login{
+    background: linear-gradient(75deg,rgba(0, 0, 0, 0.8) 25%, rgba(255, 202, 43, 0.2) 100%), url('/public/images/fond-login-2.jpeg');
+    background-position: right;
+    background-repeat: repeat-y;
+    background-size: cover;
+    animation: moveBackground 60s linear infinite
+}
+
+.bg-flou{
+    overflow: hidden;
+    isolation: isolate;
+    background: rgba(255, 202, 43, 0.041);
+    backdrop-filter: blur(3px);
+    box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.308),
+    inset -2px -2px 2px 1px rgba(255, 255, 255, 0.26), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5);
+}
+
+.bg-flou-filter{
+    backdrop-filter: url(#filter);
+}
+
+@keyframes moveBackground {
+    from {
+      background-position: 0% 0%;
+    }
+    to {
+      background-position: 0% -500%;
+    }
+  }

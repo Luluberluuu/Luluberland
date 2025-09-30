@@ -52,4 +52,9 @@ class User extends Authenticatable
                     ->withPivot('status', 'rating', 'review')
                     ->withTimestamps();
     }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
 }
