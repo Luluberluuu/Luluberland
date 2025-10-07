@@ -35,6 +35,18 @@ class SearchController extends Controller
             ])->withInput();
         }
 
-        return view('search.results', compact('results', 'type', 'query'));
+        $user = auth()->user();
+
+        // 🔹 récupérer les api_id des items déjà ajoutés
+        $userItemIds = $user->items()
+            ->where('type', $type)
+            ->pluck('api_id')
+            ->toArray();
+
+        return view('search.results', [
+            'results' => $results,
+            'type' => $type,
+            'userItemIds' => $userItemIds,
+        ]);
     }
 }

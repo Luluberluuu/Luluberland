@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 .bg-login{
-    background: linear-gradient(75deg,rgba(0, 0, 0, 0.8) 25%, rgba(255, 202, 43, 0.2) 100%), url('/public/images/fond-login-2.jpeg');
+    background: radial-gradient(circle,rgba(0, 0, 0, 0.6) 50%, rgba(255, 202, 43, 0.4) 100%), url('/public/images/fond-login-2.jpeg');
     background-position: right;
     background-repeat: repeat-y;
     background-size: cover;
@@ -14,16 +14,20 @@
 .bg-flou{
     overflow: hidden;
     isolation: isolate;
-    background: rgba(255, 202, 43, 0.041);
+    background: rgba(255, 202, 43, 0.062);
     backdrop-filter: blur(3px);
-    box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.308),
-    inset -2px -2px 2px 1px rgba(255, 255, 255, 0.26), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);;
+    box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.726),
+    inset -2px -2px 2px 1px rgba(255, 255, 255, 0.521), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);;
     color: rgba(255, 255, 255, 0.8);
     transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5);
 }
 
 .bg-flou-filter{
     backdrop-filter: url(#filter);
+}
+
+.bg-card-item{
+  background: linear-gradient(180deg,rgba(0, 0, 0, 0) 30%, rgb(0, 0, 0) 90%);
 }
 
 @keyframes moveBackground {

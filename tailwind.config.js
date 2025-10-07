@@ -19,7 +19,7 @@ export default {
                 noir: '#141414',
                 noirlight: '#2A2A2A',
                 grisclair: '#F7F7F7',
-                jaune: '#FFCA2B',
+                global: '#FFCA2B',
             }
         },
     },

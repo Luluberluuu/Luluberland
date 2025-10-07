@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\LibraryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,5 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/search', [SearchController::class, 'index'])->name('search.index');
     Route::post('/search', [SearchController::class, 'search'])->name('search.run');
 });
+
+Route::post('/library/add', [LibraryController::class, 'store'])
+    ->name('library.store')
+    ->middleware('auth');
 
 require __DIR__.'/auth.php';

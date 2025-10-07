@@ -1,5 +1,5 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="150" height="150">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100" height="100">
   <!-- Profondeur (dx, dy) = (26, -16) -->
 
   <g fill="none" stroke="#FFCA2B" stroke-width="2">
