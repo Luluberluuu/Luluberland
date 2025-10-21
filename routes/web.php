@@ -3,12 +3,13 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -20,6 +21,14 @@ Route::middleware('auth')->group(function () {
 
 Route::post('/library/add', [LibraryController::class, 'store'])
     ->name('library.store')
+    ->middleware('auth');
+
+Route::post('/library/update', [LibraryController::class, 'update'])
+    ->name('library.update')
+    ->middleware('auth');
+
+Route::post('/library/remove', [LibraryController::class, 'remove'])
+    ->name('library.remove')
     ->middleware('auth');
 
 require __DIR__.'/auth.php';

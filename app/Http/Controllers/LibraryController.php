@@ -65,4 +65,51 @@ class LibraryController extends Controller
 
         return back()->with('success', "{$data['title']} ajouté à ta bibliothèque !");
     }
+
+    public function update(Request $request)
+    {
+        $data = $request->validate([
+            'item_id' => 'required|exists:items,id',
+            'status' => 'required|in:a_voir,en_cours,termine,abandonne',
+            'rating' => 'nullable|numeric|min:0|max:10',
+            'review' => 'nullable|string|max:1000',
+        ]);
+
+        $user = auth()->user();
+        $item = Item::findOrFail($data['item_id']);
+
+        // Vérifier que l'item appartient à l'utilisateur
+        if (!$user->items()->where('item_id', $item->id)->exists()) {
+            return response()->json(['success' => false, 'message' => 'Item non trouvé dans votre bibliothèque'], 404);
+        }
+
+        // Mettre à jour les données dans la table pivot
+        $user->items()->updateExistingPivot($item->id, [
+            'status' => $data['status'],
+            'rating' => $data['rating'] ?? null,
+            'review' => $data['review'] ?? null,
+        ]);
+
+        return response()->json(['success' => true, 'message' => 'Modifications sauvegardées']);
+    }
+
+    public function remove(Request $request)
+    {
+        $data = $request->validate([
+            'item_id' => 'required|exists:items,id',
+        ]);
+
+        $user = auth()->user();
+        $item = Item::findOrFail($data['item_id']);
+
+        // Vérifier que l'item appartient à l'utilisateur
+        if (!$user->items()->where('item_id', $item->id)->exists()) {
+            return response()->json(['success' => false, 'message' => 'Item non trouvé dans votre bibliothèque'], 404);
+        }
+
+        // Retirer l'item de la bibliothèque
+        $user->items()->detach($item->id);
+
+        return response()->json(['success' => true, 'message' => 'Item retiré de votre bibliothèque']);
+    }
 }

@@ -17,7 +17,7 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen flex w-full relative bg-noirlight">
+        <div class="max-h-screen flex w-full relative bg-noirlight">
             <div class="bg-noirlight w-24 h-screen sticky top-0">
                 @include('layouts.navigation')
             </div>

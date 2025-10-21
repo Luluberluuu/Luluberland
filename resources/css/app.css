@@ -38,3 +38,238 @@
       background-position: 0% -500%;
     }
   }
+
+/* For Webkit browsers (Chrome, Safari) */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 8px;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #2A2A2A;
+}
+/* For Firefox */
+.overflow-y-auto {
+  scrollbar-color: #2A2A2A #f1f1f1;
+  scrollbar-width: thin;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.8);
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  background: transparent;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Carrousels de sections */
+.section-carousel {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #2A2A2A #f1f1f1;
+}
+
+.section-carousel::-webkit-scrollbar {
+  height: 8px;
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.section-carousel::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 8px;
+}
+
+.section-carousel::-webkit-scrollbar-thumb:hover {
+  background: #2A2A2A;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: 250px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  object-position: center;
+}
+
+/* Styles pour la modal */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+}
+
+/* Styles pour le slider */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #141414;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-track {
+  background: #2A2A2A;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #FFCA2B;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider::-moz-range-track {
+  background: #2A2A2A;
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+.slider::-moz-range-thumb {
+  background: #FFCA2B;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* Animation pour la modal */
+.modal-enter {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Styles pour les toasts */
+.toast {
+  min-width: 300px;
+  max-width: 400px;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast.success {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.9), rgba(22, 163, 74, 0.9));
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: white;
+}
+
+.toast.error {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(220, 38, 38, 0.9));
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: white;
+}
+
+.toast.info {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(37, 99, 235, 0.9));
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.toast-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.toast-message {
+  flex: 1;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.toast-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 0 0 12px 12px;
+  animation: toastProgress 3s linear forwards;
+}
+
+@keyframes toastProgress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}

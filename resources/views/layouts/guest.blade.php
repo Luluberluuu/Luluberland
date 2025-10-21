@@ -17,12 +17,7 @@
     </head>
     <body class="font-sans text-gray-900 bg-login">
         <div class="h-screen flex flex-col p-8 justify-center items-center">
-            <div class="w-1/3 flex flex-col p-6 shadow-md overflow-hidden rounded-3xl min-h-full items-center justify-center content-center bg-flou bg-flou-filter">
-                {{--<div class="mb-8 border-global rounded-full p-8 shadow-[-3px_3px_0px_1px_#FFCA2B]">
-                    <a href="/">
-                        <x-application-logo />
-                    </a>
-                </div>--}}
+            <div class="w-1/4 flex flex-col p-6 shadow-md overflow-hidden rounded-3xl min-h-auto items-center justify-center content-center bg-flou bg-flou-filter">
                 <a href="#" class="mb-12">
                     <img src="{{ asset('images/l-key.png') }}" width="100">
                 </a>
